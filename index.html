@@ -247,7 +247,24 @@ return Array.isArray(data)?data:[];
 }catch(e){return []}
 }
 
-let products=getSaved(PRODUCT_KEY);
+let products=getSaved(PRODUCT_KEY);if (!products.some(p => p.name.includes("랩핑"))) {
+  products.unshift({
+    id: "jy-wrapping-mask",
+    name: "러브에델리아 랩핑마스크팩 3종",
+    price: 15900,
+    category: "BEAUTY",
+    description: "콜라겐 72 - 탄력과 윤기 케어\n나이아신아마이드 10 - 피부톤과 광채 케어\n세라마이드 15 - 보습과 장벽 케어",
+    images: [
+      "랩핑팩.png",
+      "랩핑1.png",
+      "랩핑3.png",
+      "랩핑4.png",
+      "랩핑5.png",
+      "랩핑6.png"
+    ]
+  });
+}
+
 let cart=getSaved(CART_KEY);
 let activeCategory="ALL";
 let editingId=null;
